@@ -240,6 +240,22 @@ async def bstation(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 
 # =========================================
+# YOUKU
+# =========================================
+
+async def youku(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🎞 YOUKU
+
+⟢ sharing 1b : 5.000
+⟢ sharing 3b : 8.000
+⟢ sharing 1y : 11.000
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
 # CAPCUT
 # =========================================
 
