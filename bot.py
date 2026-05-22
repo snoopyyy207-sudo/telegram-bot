@@ -1,4 +1,5 @@
 import asyncio
+from datetime import datetime, timedelta
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import (
     ApplicationBuilder,
@@ -24,7 +25,9 @@ ADMIN_ID = 8692377434
 # DATABASE
 # =========================================
 
-approved_users = {8692377434}
+approved_users = {
+    8692377434: "permanent"
+}
 groups = set()
 
 promo_text = None
@@ -56,9 +59,23 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if user_id not in approved_users:
 
+    await update.message.reply_text(
+        "❌ Akses ditolak.\n\n"
+        "Ketik /sewa untuk membeli akses."
+    )
+
+    return
+
+expired = approved_users[user_id]
+
+if expired != "permanent":
+
+    if datetime.now() > expired:
+
+        del approved_users[user_id]
+
         await update.message.reply_text(
-            "❌ Akses ditolak.\n\n"
-            "Ketik /sewa untuk membeli akses."
+            "❌ Masa sewa habis."
         )
 
         return
@@ -107,16 +124,20 @@ async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         user_id = int(context.args[0])
 
-        approved_users.add(user_id)
+        days = int(context.args[1])
+
+        expired = datetime.now() + timedelta(days=days)
+
+        approved_users[user_id] = expired
 
         await update.message.reply_text(
-            f"✅ User {user_id} berhasil ditambahkan ke VIP."
+            f"✅ User {user_id} aktif {days} hari."
         )
 
     except:
 
         await update.message.reply_text(
-            "Contoh:\n/add 123456789"
+            "Contoh:\n/add ID 30"
         )
 
 # =========================================
