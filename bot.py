@@ -341,10 +341,26 @@ YOUTUBE SUBSCRIBE
 
 ━━━━━━━━━━━━━━━
 
-WHATSAPP MEMBER SALURAN
+WHATSAPP 
+member saluran
 › 10 : 1.800
+› 20 : 2.500
+› 30 : 3.500
+› 40 : 4.200
 › 50 : 5.000
+› 70 : 6.500
+› 80 : 7.000
 › 100 : 9.000
+› 200 : 16.000
+› 400 : 30.200
+
+react saluran
+› 100 : 3.000
+› 200 : 4.700
+› 300 : 6.000
+› 500 : 9.500
+› 700 : 12.800
+› 1000 : 17.500
 """
 
     await update.message.reply_text(text)
