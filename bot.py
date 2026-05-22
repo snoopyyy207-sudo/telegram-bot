@@ -346,25 +346,6 @@ WHATSAPP MEMBER SALURAN
     await update.message.reply_text(text)
 
 # =========================================
-# PAYMENT
-# =========================================
-
-async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    text = """
-💳 PAYMENT MYCA 
-
-Silahkan melakukan pembayaran ke @twinkaboo
-sesuai nominal. scan qriss all payment (no fee) ini, wajib kirim bukti tanpa crop & edit !
-
-⚠️ admin tidak pernah ke room chat untuk meminta payment. semua di lakukan di ress ini jika ada yang ke room chat kalian meminta payment hiraukan saja.
-
-📩 setelah payment kirim bukti ke group dan tag admin yang handle!
-"""
-
-    await update.message.reply_text(text)
-
-# =========================================
 # ADMIN
 # =========================================
 
