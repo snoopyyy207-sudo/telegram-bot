@@ -92,13 +92,6 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ━━━━━━━━━━━━━━━
 
 /social
-
-━━━━━━━━━━━━━━━
-💳 STORE MENU
-━━━━━━━━━━━━━━━
-
-/payment
-/admin
 """
 
     await update.message.reply_text(text)
@@ -628,21 +621,6 @@ react saluran
 
     await update.message.reply_text(text)
 
-# =========================================
-# ADMIN
-# =========================================
-
-async def admin(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    text = """
-👑 ADMIN STORE
-
-OWNER:
-@mycaelish
-@mycuddlee
-"""
-
-    await update.message.reply_text(text)
 # ============================================
 # DONE COMMAND
 # ============================================
@@ -758,12 +736,9 @@ app.add_handler(CommandHandler("nokostele", nokostele))
 app.add_handler(CommandHandler("nokoswa", nokoswa))
 app.add_handler(CommandHandler("nokosapk", nokosapk))
 app.add_handler(CommandHandler("social", social))
-app.add_handler(CommandHandler("admin", admin))
-
 app.add_handler(CommandHandler("d", done))
 
 app.add_handler(MessageHandler(filters.ALL, detect_rnk))
-app.add_handler(CommandHandler("admin", admin))
 
 app.add_handler(MessageHandler(filters.ALL, detect_rnk))
 print("MYCA STORE RUNNING...")
