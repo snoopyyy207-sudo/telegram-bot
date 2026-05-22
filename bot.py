@@ -6,6 +6,7 @@ from telegram import Update, ChatPermissions
 
 from telegram.ext import (
     Application,
+    ApplicationBuilder,
     CommandHandler,
     ContextTypes,
     MessageHandler,
