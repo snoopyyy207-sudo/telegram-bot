@@ -61,6 +61,8 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 /remini
 /spotify
 /applemusic
+/gemini
+/chatgpt
 /nokostele
 /nokoswa
 /nokosapk
@@ -183,19 +185,32 @@ async def iqiyi(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 
 # =========================================
-# YOUTUBE
+# YOUTUBE PREMIUM
 # =========================================
 
 async def youtube(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
+▶️ YOUTUBE PREMIUM
 
-⟢ famplan 1b : 1.500
-⟢ famplan 2b : 3.000
-⟢ famplan 3b : 4.500
-⟢ indplan 1b : 2.500
-⟢ famphead 1b : 5.000
+• Famplan
+• 1 Month : 1.000
+• 2 Month : 3.000
+• 3 Month : 4.000
+
+• Indplan
+• 1 Month : 4.000
+• 2 Month : 15.800
+• 3 Month : 18.800
+
+• Mixplan
+• 2 Month : 11.000
+
+• Famhead
+• 1 Month : 3.000
+( jaspay email buyer wajib fresh )
 """
+
     await update.message.reply_text(text)
 
 # =========================================
@@ -479,6 +494,38 @@ async def applemusic(update: Update, context: ContextTypes.DEFAULT_TYPE):
 """
 
     await update.message.reply_text(text)
+
+# =========================================
+# GEMINI AI
+# =========================================
+
+async def gemini(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🤖 GEMINI AI
+
+• shar 1 Month : 6.000
+• head 1 Month : 8.000
+• invt 1 Month : 4.000
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# CHATGPT
+# =========================================
+
+async def chatgpt(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🤖 CHATGPT
+
+• Gpt Go 6b garansi 15h : 20.000
+• Gpt Go 8b garansi 7d : 24.000
+"""
+
+    await update.message.reply_text(text)
+
 # =========================================
 # NOKOS TELEGRAM
 # =========================================
@@ -792,7 +839,8 @@ app.add_handler(CommandHandler("wink", wink))
 app.add_handler(CommandHandler("remini", remini))
 
 app.add_handler(CommandHandler("applemusic", applemusic))
-
+app.add_handler(CommandHandler("gemini", gemini))
+app.add_handler(CommandHandler("chatgpt", chatgpt))
 app.add_handler(CommandHandler("nokostele", nokostele))
 app.add_handler(CommandHandler("nokoswa", nokoswa))
 app.add_handler(CommandHandler("nokosapk", nokosapk))
