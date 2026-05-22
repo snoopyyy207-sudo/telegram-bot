@@ -183,13 +183,23 @@ async def youtube(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def loklok(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-🎬 LOKLOK
+📺 LOKLOK
 
-⟢ sharing 20d : 8.500
-⟢ private 20d : 24.000
-⟢ private 1b : 38.000
-⟢ sharing 1b basic : 13.000
-⟢ sharing 1b std : 15.000
+• Sharing Basic 1 Month
+• 8 Users : 12.350
+• 3 Users : 15.350
+
+• Sharing Standar 1 Month
+• 8 Users : 17.850
+• 3 Users : 20.850
+
+• Private
+• Basic : 50.850
+• Standar : 65.350
+
+• Note
+• Basic tidak bisa akses TV
+• Standar bisa akses TV
 """
 
     await update.message.reply_text(text)
