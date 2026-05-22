@@ -415,7 +415,7 @@ async def new_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def detect_rnk(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    if update.effective_chat.id != https://t.me/mycapyla/23:
+    if update.effective_chat.id != -1003977810960:
         return
 
     rnk_users.add(update.effective_user.id)
