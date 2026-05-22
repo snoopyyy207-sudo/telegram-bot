@@ -361,6 +361,48 @@ OWNER:
 
     await update.message.reply_text(text)
 
+# =========================
+# DONE COMMAND
+# =========================
+
+async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    if not update.message.reply_to_message:
+        await update.message.reply_text(
+            "Reply chat customer lalu ketik /d"
+        )
+        return
+
+    user_id = update.message.reply_to_message.from_user.id
+
+    try:
+        await context.bot.restrict_chat_member(
+            chat_id=-1003924200293,
+            user_id=user_id,
+            permissions=ChatPermissions(
+                can_send_messages=False
+            )
+        )
+
+        await update.message.reply_text(
+f"""
+👋 Hallo {update.message.reply_to_message.from_user.mention_html()} Silakan isi rnk disini [ t.me/mycapyla/23 ] dan anda akan di lepas hukuman setelah mengisi rnk!
+
+-- BOT VIP MYCA --
+""",
+            parse_mode="HTML"
+        )
+
+    except Exception as e:
+        await update.message.reply_text(str(e))
+
+
+# =========================
+# HANDLER
+# =========================
+
+app.add_handler(CommandHandler("d", done))
+
 # =========================================
 # RUN BOT
 # =========================================
@@ -385,7 +427,7 @@ app.add_handler(CommandHandler("teleprem", teleprem))
 app.add_handler(CommandHandler("social", social))
 
 app.add_handler(CommandHandler("admin", admin))
-app.add_handler(CommandHandler("d", d))
+app.add_handler(CommandHandler("d", done))
 
 print("MYCA STORE RUNNING...")
 
