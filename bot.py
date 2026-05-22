@@ -398,7 +398,7 @@ app.run_polling()
 group_members = set()
 rnk_users = set()
 
-GROUP_ID = -100xxxxxxxxxx
+GROUP_ID = -3924200293
 RNK_CHANNEL_ID = -1003977810960
 
 # =========================================
