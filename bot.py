@@ -107,10 +107,17 @@ async def disney(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 🎬 DISNEY+
 
-⟢ sharing 1d : 3.500
-⟢ sharing 1w 10u : 8.500
-⟢ sharing 1b 6u : 26.000
-⟢ private 1b : 126.000
+• Sharing 6 User
+• 1 Day : 4.000
+• 3 Day : 7.000
+• 7 Day : 15.500
+• 1 Month : 21.000
+
+• Sharing 10 User
+• 1 Day : 3.500
+• 3 Day : 6.000
+• 7 Day : 10.000
+• 1 Month : 16.000
 """
 
     await update.message.reply_text(text)
