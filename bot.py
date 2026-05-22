@@ -374,15 +374,14 @@ WHATSAPP MEMBER SALURAN
 async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-💳 PAYMENT
+💳 PAYMENT MYCA 
 
-✅ DANA
-✅ GOPAY
-✅ OVO
-✅ QRIS
+Silahkan melakukan pembayaran ke @twinkaboo
+sesuai nominal. scan qriss all payment (no fee) ini, wajib kirim bukti tanpa crop & edit !
 
-📩 Chat admin untuk payment:
-@mycaelish
+⚠️ admin tidak pernah ke room chat untuk meminta payment. semua di lakukan di ress ini jika ada yang ke room chat kalian meminta payment hiraukan saja.
+
+📩 setelah payment kirim bukti ke group dan tag admin yang handle!
 """
 
     await update.message.reply_text(text)
@@ -398,23 +397,7 @@ async def admin(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 OWNER:
 @mycaelish
-"""
-
-    await update.message.reply_text(text)
-
-# =========================================
-# TESTI
-# =========================================
-
-async def testi(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    text = """
-📢 TESTIMONI STORE
-
-please ask admin for testi yaa ♡
-
-thankyou for trusting
-MYCA | FH APP PREM ✦
+@mycuddlee
 """
 
     await update.message.reply_text(text)
