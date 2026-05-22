@@ -398,6 +398,9 @@ app.run_polling()
 group_members = set()
 rnk_users = set()
 
+GROUP_ID = -100xxxxxxxxxx
+RNK_CHANNEL_ID = -1003977810960
+
 # =========================================
 # SAVE MEMBER
 # =========================================
@@ -414,10 +417,37 @@ async def new_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def detect_rnk(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    if update.effective_chat.id != -1003977810960:
+    if update.effective_chat.id != RNK_CHANNEL_ID:
         return
 
-    rnk_users.add(update.effective_user.id)
+    user_id = update.effective_user.id
+
+    # save user yg udh isi RnK
+    rnk_users.add(user_id)
+
+    try:
+
+        # unmute
+        await context.bot.restrict_chat_member(
+            chat_id=GROUP_ID,
+            user_id=user_id,
+            permissions=ChatPermissions(
+                can_send_messages=True
+            )
+        )
+
+        # notif
+        await context.bot.send_message(
+            chat_id=GROUP_ID,
+            text=f"""
+✅ @{update.effective_user.username} sudah mengisi RnK dan telah di lepas hukuman.
+
+-- BOT VIP MYCA --
+"""
+        )
+
+    except:
+        pass
 
 # =========================================
 # DONE COMMAND
@@ -439,6 +469,7 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
         try:
 
+            # mute
             await context.bot.restrict_chat_member(
                 chat_id=GROUP_ID,
                 user_id=user_id,
@@ -447,15 +478,15 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
                 )
             )
 
+            # notif
             await update.message.reply_text(
-    f"""
+                f"""
 👋 Hallo {update.message.reply_to_message.from_user.mention_html()} Silakan isi rnk disini [ t.me/mycapyla/23 ] dan anda akan di lepas hukuman setelah mengisi rnk!
 
 -- BOT VIP MYCA --
 """,
-    parse_mode="HTML"
-)
-            
+                parse_mode="HTML"
+            )
 
         except Exception as e:
 
@@ -464,12 +495,29 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
 
         await update.message.reply_text(
-    f"""
-✅ @{update.effective_user.username} sudah mengisi RnK dan telah di lepas hukuman.
-
--- BOT VIP MYCA --
-"""
-)
+            "✅ Customer sudah isi RnK."
+        )
 
         # reset supaya next order wajib isi lagi
         rnk_users.remove(user_id)
+
+# =========================================
+# HANDLER
+# =========================================
+
+app.add_handler(
+    MessageHandler(
+        filters.StatusUpdate.NEW_CHAT_MEMBERS,
+        new_member
+    )
+)
+
+app.add_handler(
+    MessageHandler(filters.ALL, detect_rnk)
+)
+
+app.add_handler(CommandHandler("d", done))
+
+print("MYCA STORE RUNNING...")
+
+app.run_polling()
