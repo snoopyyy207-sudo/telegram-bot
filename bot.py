@@ -223,6 +223,23 @@ async def loklok(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 
 # =========================================
+# BSTATION
+# =========================================
+
+async def bstation(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📺 BSTATION
+
+⟢ sharing 1b : 4.000
+⟢ sharing 3b : 8.500
+⟢ sharing 1y : 11.000
+⟢ private 1b : 29.000
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
 # CAPCUT
 # =========================================
 
