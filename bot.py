@@ -306,6 +306,23 @@ async def canva(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 
 # =========================================
+# ALIGHTMOTION
+# =========================================
+
+async def alightmotion(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🎬 ALIGHT MOTION
+
+⟢ sharing 1b : 400p
+⟢ sharing 1y : 500p
+⟢ private 1y : 1.000
+⟢ avail acc b : 1.500
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
 # SPOTIFY
 # =========================================
 
