@@ -1,53 +1,17 @@
-import asyncio
-from datetime import datetime, timedelta
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+# =========================================
+# MYCA | FH APP PREM BOT
+# =========================================
+
+from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
     CommandHandler,
-    ContextTypes,
-    MessageHandler,
-    filters
+    ContextTypes
 )
-
-# =========================================
-# TOKEN BOT
-# =========================================
 
 TOKEN = "8688671404:AAG__A8l8lU0dACFXNULcpLo9m8klUi4Rps"
 
-# =========================================
-# ADMIN ID
-# =========================================
-
-ADMIN_ID = 8692377434
-
-# =========================================
-# DATABASE
-# =========================================
-
-approved_users = {
-    8692377434: "permanent"
-}
-groups = set()
-
-promo_text = None
-promo_delay = 5
-promo_type = "broadcast"
-promo_status = False
-
-# =========================================
-# AUTO SAVE GROUP
-# =========================================
-
-async def savegroup(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    chat = update.effective_chat
-
-    if chat.type in ["group", "supergroup"]:
-
-        groups.add(chat.id)
-
-        print(f"GROUP SAVED: {chat.id}")
+ADMIN = "@mycaelish"
 
 # =========================================
 # START
@@ -55,272 +19,405 @@ async def savegroup(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    user_id = update.effective_chat.id
+    text = """
+ㅤㅤ⠀( sun melts softly between the quiet sky. )
+ㅤㅤ⠀small things, warm feelings —
+ㅤㅤ⠀welcome to [ MYCA | FH APP PREM ] 89’s 🦴✨
+ㅤㅤ⠀your safe place for premium apps with tiny prices.
 
-    if user_id not in approved_users:
-
-        await update.message.reply_text(
-            "❌ Akses ditolak.\n\n"
-            "Ketik /sewa untuk membeli akses."
-        )
-
-        return
-
-    expired = approved_users[user_id]
-
-    if expired != "permanent":
-
-        if datetime.now() > expired:
-
-            del approved_users[user_id]
-
-            await update.message.reply_text(
-                "❌ Masa sewa habis."
-            )
-
-            return
-
-    await update.message.reply_text(
-        "✅ Selamat datang member VIP."
-    )
-# =========================================
-# MENU SEWA
-# =========================================
-
-async def sewa(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    keyboard = [
-        [
-            InlineKeyboardButton(
-                "📞 Hubungi Admin",
-                url="https://t.me/mycaelish"
-            )
-        ]
-    ]
-
-    reply_markup = InlineKeyboardMarkup(keyboard)
-
-    await update.message.reply_photo(
-        photo="https://t.me/twinkaboo/3",
-        caption=(
-            "💎 SEWA BOT VIP 💎\n\n"
-            "Harga : Rp4.000 / bulan\n\n"
-            "Transfer ke QRIS di atas lalu kirim bukti transfer ke admin."
-        ),
-        reply_markup=reply_markup
-    )
-
-# =========================================
-# ADD VIP USER
-# =========================================
-
-async def add(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    if update.effective_chat.id != ADMIN_ID:
-        return
-
-    try:
-
-        user_id = int(context.args[0])
-
-        days = int(context.args[1])
-
-        expired = datetime.now() + timedelta(days=days)
-
-        approved_users[user_id] = expired
-
-        await update.message.reply_text(
-            f"✅ User {user_id} aktif {days} hari."
-        )
-
-    except:
-
-        await update.message.reply_text(
-            "Contoh:\n/add ID 30"
-        )
-
-# =========================================
-# LIST USER
-# =========================================
-
-async def listusers(update: Update, context: ContextTypes.DEFAULT_TYPE):
-
-    if update.effective_chat.id != ADMIN_ID:
-        return
-
-    text = "\n".join(str(x) for x in approved_users)
-
-    if not text:
-        text = "Belum ada user VIP."
+Ketik /pricelist untuk melihat semua produk ✨
+"""
 
     await update.message.reply_text(text)
 
 # =========================================
-# SAVE PROMOSI
+# PRICELIST
 # =========================================
 
-async def promosi(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    global promo_text
-    global promo_delay
-    global promo_type
-    global promo_status
+    text = """
+━━━━━━━━━━━━━━━
+🎬 STREAMING APPS
+━━━━━━━━━━━━━━━
 
-    if update.effective_chat.id != ADMIN_ID:
-        return
+/netflix
+/disney
+/viu
+/iqiyi
+/youtube
+/bstation
+/youku
+/loklok
 
-    args = context.args
+━━━━━━━━━━━━━━━
+🎨 EDITING APPS
+━━━━━━━━━━━━━━━
 
-    if not args:
-        return
+/capcut
+/canva
+/alightmotion
+/picsart
+/meitu
+/wink
+/remini
 
-    # =====================================
-    # SAVE PROMOSI
-    # =====================================
+━━━━━━━━━━━━━━━
+🎵 LISTENING APPS
+━━━━━━━━━━━━━━━
 
-    if args[0] == "save":
+/spotify
+/applemusic
 
-        if update.message.reply_to_message:
+━━━━━━━━━━━━━━━
+📱 NOKOS
+━━━━━━━━━━━━━━━
 
-            promo_text = update.message.reply_to_message.text
+/nokostele
+/nokoswa
+/nokosapk
 
-            await update.message.reply_text(
-                "✅ Promosi berhasil disimpan."
-            )
+━━━━━━━━━━━━━━━
+⭐ TELEGRAM PREMIUM
+━━━━━━━━━━━━━━━
 
-    # =====================================
-    # DELAY
-    # =====================================
+/teleprem
 
-    elif args[0] == "delay":
+━━━━━━━━━━━━━━━
+📈 SOCIAL SERVICES
+━━━━━━━━━━━━━━━
 
-        promo_delay = int(args[1])
+/social
 
-        await update.message.reply_text(
-            f"✅ Delay diubah jadi {promo_delay} menit."
-        )
+━━━━━━━━━━━━━━━
+💳 STORE MENU
+━━━━━━━━━━━━━━━
 
-    # =====================================
-    # TYPE
-    # =====================================
+/payment
+/admin
+/testi
+"""
 
-    elif args[0] == "type":
-
-        promo_type = args[1]
-
-        await update.message.reply_text(
-            f"✅ Type promosi: {promo_type}"
-        )
-
-    # =====================================
-    # ON
-    # =====================================
-
-    elif args[0] == "on":
-
-        if promo_text is None:
-
-            await update.message.reply_text(
-                "❌ Belum ada promosi yang disimpan."
-            )
-
-            return
-
-        promo_status = True
-
-        await update.message.reply_text(
-            "✅ Auto promosi diaktifkan."
-        )
-
-        while promo_status:
-
-            sukses = 0
-
-            for group_id in groups:
-
-                try:
-
-                    # ======================
-                    # BROADCAST
-                    # ======================
-
-                    if promo_type == "broadcast":
-
-                        await context.bot.send_message(
-                            chat_id=group_id,
-                            text=promo_text
-                        )
-
-                    sukses += 1
-
-                except:
-                    pass
-
-            print(f"BERHASIL KIRIM KE {sukses} GROUP")
-
-            await asyncio.sleep(
-                promo_delay * 60
-            )
-
-    # =====================================
-    # OFF
-    # =====================================
-
-    elif args[0] == "off":
-
-        promo_status = False
-
-        await update.message.reply_text(
-            "⛔ Auto promosi dihentikan."
-        )
+    await update.message.reply_text(text)
 
 # =========================================
-# DELETE SAVE
+# NETFLIX
 # =========================================
 
-async def delsave(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def netflix(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    global promo_text
+    text = """
+🎬 NETFLIX
 
-    if update.effective_chat.id != ADMIN_ID:
-        return
+⟢ 1d1u : 1.5OO
+⟢ 3d1u : 3.5OO
+⟢ 7d1u : 7.5OO
+⟢ 1month 1u : 17.OOO
 
-    promo_text = None
+⟢ 1d2u : 1.2OO
+⟢ 3d2u : 2.5OO
+⟢ 7d2u : 6.5OO
+⟢ 1month 2u : 16.OOO
 
-    await update.message.reply_text(
-        "🗑 Promosi berhasil dihapus."
-    )
+⟢ 1d semipriv : 3.OOO
+⟢ 3d semipriv : 4.5OO
+⟢ 7d semipriv : 8.5OO
+⟢ 1month semipriv : 23.OOO
+
+⟢ 7d private : 5O.OOO
+⟢ 1month private : 1O5.OOO
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
 
 # =========================================
-# BROADCAST MANUAL
+# DISNEY
 # =========================================
 
-async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def disney(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    if update.effective_chat.id != ADMIN_ID:
-        return
+    text = """
+🎬 DISNEY+
 
-    text = " ".join(context.args)
+⟢ sharing 1d : 3.500
+⟢ sharing 1w 10u : 8.500
+⟢ sharing 1b 6u : 26.000
+⟢ private 1b : 126.000
 
-    sukses = 0
+📩 Order? @mycaelish
+"""
 
-    for group_id in groups:
+    await update.message.reply_text(text)
 
-        try:
+# =========================================
+# VIU
+# =========================================
 
-            await context.bot.send_message(
-                chat_id=group_id,
-                text=text
-            )
+async def viu(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-            sukses += 1
+    text = """
+📺 VIU
 
-        except:
-            pass
+⟢ private anti limit 1b : 500p
+⟢ private anti limit 3b : 1.500
+⟢ private anti limit 1y : 2.000
+⟢ viu+ 1b : 7.500
+⟢ viu lifetime : 2.500
 
-    await update.message.reply_text(
-        f"✅ Broadcast terkirim ke {sukses} grup."
-    )
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# IQIYI
+# =========================================
+
+async def iqiyi(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📺 IQIYI
+
+⟢ premium 1b : 4.000
+⟢ premium 3b : 9.000
+⟢ premium 1y : 11.000
+
+⟢ std 1b : 3.500
+⟢ std 3b : 8.000
+⟢ std 1y : 9.000
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# YOUTUBE
+# =========================================
+
+async def youtube(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+▶️ YOUTUBE PREMIUM
+
+⟢ famplan 1b : 2.500
+⟢ famplan 2b : 4.000
+⟢ famplan 3b : 5.500
+⟢ indplan 1b : 4.500
+⟢ famphead 1b : 5.000
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# CAPCUT
+# =========================================
+
+async def capcut(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🎬 CAPCUT
+
+⟢ sharing 1day : 9OOp
+⟢ sharing 7day : 1.5OO
+⟢ sharing 1month : 5.OOO
+
+━━━━━━━━━━━━━━━
+
+⟢ private 7day : 4.OOO
+⟢ private 14day : 5.OOO
+⟢ private 21day : 6.5OO
+⟢ private 28day : 1O.OOO
+⟢ private 1month : 12.OOO
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# CANVA
+# =========================================
+
+async def canva(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🎨 CANVA
+
+⟢ 1d member : 40p
+⟢ 7d member : 100p
+⟢ 1b member : 250p
+⟢ 2b : 600p
+⟢ 3b : 1.000
+⟢ 6b : 1.300
+
+⟢ 1y renew : 2.000
+⟢ 1y no renew : 3.000
+⟢ 1y member gar8m : 6.OOO
+⟢ 1y member fullgar : 8.OOO
+
+⟢ lifetime : 3.800
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# SPOTIFY
+# =========================================
+
+async def spotify(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🎵 SPOTIFY [ full gar ]
+
+⟢ fampl 7d : 7.500
+⟢ fampl 14d : 9.000
+⟢ fampl 1b : 13.000
+⟢ fampl 2b : 24.000
+
+⟢ indpl 7d : 8.000
+⟢ indpl 1b : 14.000
+
+━━━━━━━━━━━━━━━
+
+🎵 SPOTIFY [ no gar ]
+
+⟢ fampl 1b : 5.000
+⟢ indpl 1b : 6.000
+⟢ indpl 3b : 16.000
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# TELEGRAM PREMIUM
+# =========================================
+
+async def teleprem(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+⭐ TELEGRAM PREMIUM
+
+via login
+
+⟢ 1 bulan no indo : 52.000
+⟢ 1 bulan no luar : 55.000
+⟢ 3 bulan : 208.000
+⟢ 6 bulan : 277.000
+⟢ 1 tahun : 371.000
+
+━━━━━━━━━━━━━━━
+
+via gift
+
+⟢ 3 bulan : 206.000
+⟢ 6 bulan : 274.000
+⟢ 1 tahun : 498.000
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# SOCIAL SERVICES
+# =========================================
+
+async def social(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📈 SOCIAL SERVICES
+
+INSTAGRAM FOLLOWERS
+› 100 : 2.000
+› 500 : 4.500
+› 1000 : 9.000
+
+━━━━━━━━━━━━━━━
+
+TIKTOK FOLLOWERS
+› 100 : 3.000
+› 500 : 9.000
+› 1000 : 16.000
+
+━━━━━━━━━━━━━━━
+
+YOUTUBE SUBSCRIBE
+› 10 sub : 4.300
+› 50 sub : 16.300
+› 100 sub : 31.300
+
+━━━━━━━━━━━━━━━
+
+WHATSAPP MEMBER SALURAN
+› 10 : 1.800
+› 50 : 5.000
+› 100 : 9.000
+
+📩 Order? @mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# PAYMENT
+# =========================================
+
+async def payment(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+💳 PAYMENT
+
+✅ DANA
+✅ GOPAY
+✅ OVO
+✅ QRIS
+
+📩 Chat admin untuk payment:
+@mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# ADMIN
+# =========================================
+
+async def admin(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+👑 ADMIN STORE
+
+OWNER:
+@mycaelish
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# TESTI
+# =========================================
+
+async def testi(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📢 TESTIMONI STORE
+
+please ask admin for testi yaa ♡
+
+thankyou for trusting
+MYCA | FH APP PREM ✦
+"""
+
+    await update.message.reply_text(text)
 
 # =========================================
 # RUN BOT
@@ -328,26 +425,27 @@ async def broadcast(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 app = ApplicationBuilder().token(TOKEN).build()
 
-# =========================================
-# HANDLER
-# =========================================
-
 app.add_handler(CommandHandler("start", start))
-app.add_handler(CommandHandler("sewa", sewa))
-app.add_handler(CommandHandler("add", add))
-app.add_handler(CommandHandler("list", listusers))
-app.add_handler(CommandHandler("promosi", promosi))
-app.add_handler(CommandHandler("broadcast", broadcast))
-app.add_handler(CommandHandler("delsave", delsave))
+app.add_handler(CommandHandler("pricelist", pricelist))
 
-app.add_handler(
-    MessageHandler(filters.ALL, savegroup)
-)
+app.add_handler(CommandHandler("netflix", netflix))
+app.add_handler(CommandHandler("disney", disney))
+app.add_handler(CommandHandler("viu", viu))
+app.add_handler(CommandHandler("iqiyi", iqiyi))
+app.add_handler(CommandHandler("youtube", youtube))
 
-# =========================================
-# START BOT
-# =========================================
+app.add_handler(CommandHandler("capcut", capcut))
+app.add_handler(CommandHandler("canva", canva))
 
-print("VIP BOT RUNNING...")
+app.add_handler(CommandHandler("spotify", spotify))
+app.add_handler(CommandHandler("teleprem", teleprem))
+
+app.add_handler(CommandHandler("social", social))
+
+app.add_handler(CommandHandler("payment", payment))
+app.add_handler(CommandHandler("admin", admin))
+app.add_handler(CommandHandler("testi", testi))
+
+print("MYCA STORE RUNNING...")
 
 app.run_polling()
