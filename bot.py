@@ -2,6 +2,8 @@
 # MYCA | FH APP PREM 
 # =========================================
 
+from telegram import Update, ChatPermissions
+
 from telegram.ext import (
     Application,
     CommandHandler,
