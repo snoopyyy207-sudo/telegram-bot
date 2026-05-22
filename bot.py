@@ -464,7 +464,6 @@ app.add_handler(CommandHandler("social", social))
 
 app.add_handler(CommandHandler("admin", admin))
 
-app.add_handler(CommandHandler("d", done))
 app.add_handler(MessageHandler(filters.ALL, detect_rnk))
 print("MYCA STORE RUNNING...")
 
