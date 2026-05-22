@@ -477,15 +477,14 @@ via gift
     await update.message.reply_text(text)
 
 # =========================================
-# KEBSOS SERVICES
+# KEBSOS
 # =========================================
 
-async def social(update: Update, context: ContextTypes.DEFAULT_TYPE):
+async def kebsos(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-📈 KEBSOS SERVICES
+📌 INSTAGRAM SERVICES
 
-INSTAGRAM 
 followers [ refill 30h ]
 › 100 : 2.000
 › 200 : 2.800
@@ -509,9 +508,9 @@ views
 › 3000 : 1.800
 › 100k : 6.000
 
-━━━━━━━━━━━━━━━
 
-TIKTOK 
+📌 TIKTOK SERVICES
+
 followers [ no refill ]
 › 100 : 3.000
 › 200 : 5.000
@@ -543,9 +542,9 @@ views
 › 8000 : 7.200
 › 10k : 8.500
 
-━━━━━━━━━━━━━━━
 
-YOUTUBE 
+📌 YOUTUBE SERVICES
+
 subscribe [ refill 30h ]
 › 10 sub : 4.300
 › 20 sub : 7.300
@@ -567,9 +566,9 @@ comments
 › 700 : 10.500
 › 1000 : 14.500
 
-━━━━━━━━━━━━━━━
 
-WHATSAPP 
+📌 WHATSAPP SERVICES
+
 member saluran
 › 10 : 1.800
 › 20 : 2.500
