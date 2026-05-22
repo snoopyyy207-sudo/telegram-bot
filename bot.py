@@ -541,6 +541,22 @@ app.add_handler(CommandHandler("iqiyi", iqiyi))
 app.add_handler(CommandHandler("capcut", capcut))
 app.add_handler(CommandHandler("canva", canva))
 app.add_handler(CommandHandler("teleprem", teleprem))
+app.add_handler(CommandHandler("loklok", loklok))
+app.add_handler(CommandHandler("disney", disney))
+app.add_handler(CommandHandler("bstation", bstation))
+app.add_handler(CommandHandler("youku", youku))
+
+app.add_handler(CommandHandler("alightmotion", alightmotion))
+app.add_handler(CommandHandler("picsart", picsart))
+app.add_handler(CommandHandler("meitu", meitu))
+app.add_handler(CommandHandler("wink", wink))
+app.add_handler(CommandHandler("remini", remini))
+
+app.add_handler(CommandHandler("applemusic", applemusic))
+
+app.add_handler(CommandHandler("nokostele", nokostele))
+app.add_handler(CommandHandler("nokoswa", nokoswa))
+app.add_handler(CommandHandler("nokosapk", nokosapk))
 app.add_handler(CommandHandler("social", social))
 app.add_handler(CommandHandler("admin", admin))
 
