@@ -414,7 +414,7 @@ async def new_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 async def detect_rnk(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
-    if update.effective_chat.id != RNK_CHANNEL_ID:
+    if update.effective_chat.id != https://t.me/mycapyla/23:
         return
 
     rnk_users.add(update.effective_user.id)
@@ -448,7 +448,13 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
 
             await update.message.reply_text(
-                "❌ Customer belum isi RnK.\nUser berhasil dimute."
+    f"""
+👋 Hallo {update.message.reply_to_message.from_user.mention_html()} Silakan isi rnk disini [ t.me/mycapyla/23 ] dan anda akan di lepas hukuman setelah mengisi rnk!
+
+-- BOT VIP MYCA --
+""",
+    parse_mode="HTML"
+)
             )
 
         except Exception as e:
