@@ -452,20 +452,6 @@ app = ApplicationBuilder().token(TOKEN).build()
 app.add_handler(CommandHandler("start", start))
 app.add_handler(CommandHandler("pricelist", pricelist))
 
-app.add_handler(CommandHandler("netflix", netflix))
-app.add_handler(CommandHandler("disney", disney))
-app.add_handler(CommandHandler("viu", viu))
-app.add_handler(CommandHandler("iqiyi", iqiyi))
-app.add_handler(CommandHandler("youtube", youtube))
-
-app.add_handler(CommandHandler("capcut", capcut))
-app.add_handler(CommandHandler("canva", canva))
-
-app.add_handler(CommandHandler("spotify", spotify))
-app.add_handler(CommandHandler("teleprem", teleprem))
-
-app.add_handler(CommandHandler("social", social))
-
 app.add_handler(CommandHandler("admin", admin))
 
 app.add_handler(MessageHandler(filters.ALL, detect_rnk))
