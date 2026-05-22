@@ -2,11 +2,12 @@
 # MYCA | FH APP PREM 
 # =========================================
 
-from telegram import Update
 from telegram.ext import (
-    ApplicationBuilder,
+    Application,
     CommandHandler,
-    ContextTypes
+    ContextTypes,
+    MessageHandler,
+    filters
 )
 
 TOKEN = "8688671404:AAG__A8l8lU0dACFXNULcpLo9m8klUi4Rps"
