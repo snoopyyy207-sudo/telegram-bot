@@ -1,5 +1,5 @@
 # =========================================
-# MYCA | FH APP PREM BOT
+# MYCA | FH APP PREM 
 # =========================================
 
 from telegram import Update
