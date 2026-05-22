@@ -41,10 +41,7 @@ Ketik /pricelist untuk melihat semua produk ✨
 async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-━━━━━━━━━━━━━━━
-🎬 STREAMING APPS
-━━━━━━━━━━━━━━━
-
+📌Gunakan command berikut untuk melihat pricelist:
 /netflix
 /disney
 /viu
@@ -53,11 +50,6 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 /bstation
 /youku
 /loklok
-
-━━━━━━━━━━━━━━━
-🎨 EDITING APPS
-━━━━━━━━━━━━━━━
-
 /capcut
 /canva
 /alightmotion
@@ -65,33 +57,13 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 /meitu
 /wink
 /remini
-
-━━━━━━━━━━━━━━━
-🎵 LISTENING APPS
-━━━━━━━━━━━━━━━
-
 /spotify
 /applemusic
-
-━━━━━━━━━━━━━━━
-📱 NOKOS
-━━━━━━━━━━━━━━━
-
 /nokostele
 /nokoswa
 /nokosapk
-
-━━━━━━━━━━━━━━━
-⭐ TELEGRAM PREMIUM
-━━━━━━━━━━━━━━━
-
 /teleprem
-
-━━━━━━━━━━━━━━━
-📈 SOCIAL SERVICES
-━━━━━━━━━━━━━━━
-
-/social
+/kebsos
 """
 
     await update.message.reply_text(text)
@@ -505,13 +477,13 @@ via gift
     await update.message.reply_text(text)
 
 # =========================================
-# SOCIAL SERVICES
+# KEBSOS SERVICES
 # =========================================
 
 async def social(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-📈 SOCIAL SERVICES
+📈 KEBSOS SERVICES
 
 INSTAGRAM 
 followers [ refill 30h ]
@@ -735,7 +707,7 @@ app.add_handler(CommandHandler("applemusic", applemusic))
 app.add_handler(CommandHandler("nokostele", nokostele))
 app.add_handler(CommandHandler("nokoswa", nokoswa))
 app.add_handler(CommandHandler("nokosapk", nokosapk))
-app.add_handler(CommandHandler("social", social))
+app.add_handler(CommandHandler("kebsos", kebsos))
 app.add_handler(CommandHandler("d", done))
 
 app.add_handler(MessageHandler(filters.ALL, detect_rnk))
