@@ -464,7 +464,9 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
 
         await update.message.reply_text(
-            "✅ Customer sudah isi RnK."
+            "✅ @username sudah mengisi RnK dan telah di lepas hukuman.
+
+-- BOT VIP MYCA --"
         )
 
         # reset supaya next order wajib isi lagi
