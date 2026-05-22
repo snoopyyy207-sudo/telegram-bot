@@ -75,25 +75,45 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def netflix(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-🎬 NETFLIX
+🎬 NETFLIX ( STRONG AKUN )
 
-⟢ 1d1u : 1.5OO
-⟢ 3d1u : 3.5OO
-⟢ 7d1u : 7.5OO
-⟢ 1month 1u : 17.OOO
+• Sharing 1u
+• 1 Day : 3.800
+• 3 Day : 5.800
+• 7 Day : 8.800
+• 1 Month : 29.000
 
-⟢ 1d2u : 1.2OO
-⟢ 3d2u : 2.5OO
-⟢ 7d2u : 6.5OO
-⟢ 1month 2u : 16.OOO
+• Sharing 2u
+• 1 Day : 3.500
+• 3 Day : 5.200
+• 7 Day : 9.800
+• 1 Month : 19.000
+• Semipriv 1 Month : 33.000
 
-⟢ 1d semipriv : 3.OOO
-⟢ 3d semipriv : 4.5OO
-⟢ 7d semipriv : 8.5OO
-⟢ 1month semipriv : 23.OOO
+• Private ( made by order )
+• 1 Week : 61.000
+• 1 Month : 111.000 – 152.000
 
-⟢ 7d private : 5O.OOO
-⟢ 1month private : 1O5.OOO
+
+🎬 NETFLIX ( NO STRONG )
+
+• Sharing 1U
+• 1d : 1.950(link) ➜ 2.800(code)
+• 2d : 3.500(link) ➜ 4.350(code)
+• 3d : 4.500(link) ➜ 5.350(code)
+• 7d : 6.500(link) ➜ 7.350(code)
+• 1 Month : 15.500(link) ➜ 25.000(code)
+
+• Sharing 2U
+• 1d : 1.800(link) ➜ 2.650(code)
+• 2d : 2.800(link) ➜ 3.650(code)
+• 3d : 4.000(link) ➜ 4.850(code)
+• 7d : 5.800
+• 1 Month : 10.500(link) ➜ 14.000(code)
+• Semipriv 1 Month : 20.000(link) ➜ 30.000(code)
+
+» Note
+» GA STRONG AKUN
 """
 
     await update.message.reply_text(text)
