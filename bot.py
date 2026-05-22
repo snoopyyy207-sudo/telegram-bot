@@ -464,10 +464,12 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     else:
 
         await update.message.reply_text(
-            "✅ @username sudah mengisi RnK dan telah di lepas hukuman.
+    f"""
+✅ @{update.effective_user.username} sudah mengisi RnK dan telah di lepas hukuman.
 
--- BOT VIP MYCA --"
-        )
+-- BOT VIP MYCA --
+"""
+)
 
         # reset supaya next order wajib isi lagi
         rnk_users.remove(user_id)
