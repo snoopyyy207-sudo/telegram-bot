@@ -95,7 +95,6 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 /payment
 /admin
-/testi
 """
 
     await update.message.reply_text(text)
@@ -126,7 +125,6 @@ async def netflix(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 ⟢ 7d private : 5O.OOO
 ⟢ 1month private : 1O5.OOO
-
 """
 
     await update.message.reply_text(text)
@@ -144,7 +142,6 @@ async def disney(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ sharing 1w 10u : 8.500
 ⟢ sharing 1b 6u : 26.000
 ⟢ private 1b : 126.000
-
 """
 
     await update.message.reply_text(text)
@@ -163,7 +160,6 @@ async def viu(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ private anti limit 1y : 2.000
 ⟢ viu+ 1b : 7.500
 ⟢ viu lifetime : 2.500
-
 """
 
     await update.message.reply_text(text)
@@ -184,7 +180,6 @@ async def iqiyi(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ std 1b : 3.500
 ⟢ std 3b : 8.000
 ⟢ std 1y : 9.000
-
 """
 
     await update.message.reply_text(text)
@@ -202,7 +197,6 @@ async def youtube(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ famplan 3b : 4.500
 ⟢ indplan 1b : 2.500
 ⟢ famphead 1b : 5.000
-
 """
 
     await update.message.reply_text(text)
@@ -227,7 +221,6 @@ async def capcut(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ private 21day : 6.5OO
 ⟢ private 28day : 1O.OOO
 ⟢ private 1month : 12.OOO
-
 """
 
     await update.message.reply_text(text)
@@ -254,7 +247,6 @@ async def canva(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ 1y member fullgar : 8.OOO
 
 ⟢ lifetime : 3.800
-
 """
 
     await update.message.reply_text(text)
@@ -283,7 +275,6 @@ async def spotify(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ fampl 1b : 5.000
 ⟢ indpl 1b : 6.000
 ⟢ indpl 3b : 16.000
-
 """
 
     await update.message.reply_text(text)
@@ -312,8 +303,6 @@ via gift
 ⟢ 3 bulan : 206.000
 ⟢ 6 bulan : 274.000
 ⟢ 1 tahun : 498.000
-
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -352,7 +341,6 @@ WHATSAPP MEMBER SALURAN
 › 10 : 1.800
 › 50 : 5.000
 › 100 : 9.000
-
 """
 
     await update.message.reply_text(text)
