@@ -393,23 +393,17 @@ async def remini(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def spotify(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-🎵 SPOTIFY [ full gar ]
+🎵 SPOTIFY
 
-⟢ fampl 7d : 7.500
-⟢ fampl 14d : 9.000
-⟢ fampl 1b : 13.000
-⟢ fampl 2b : 24.000
+1B INDP FULLGAR : 14.000
+1B INDP GARANSI 20D : 12.000
+1B INDP NOGAR : 5.500
+1B INDP GARANSI 24 JAM : 8.000
 
-⟢ indpl 7d : 8.000
-⟢ indpl 1b : 14.000
+2B FULLGAR : 21.700
+2B FAMPLAN GARANSI 25D : 17.000
 
-━━━━━━━━━━━━━━━
-
-🎵 SPOTIFY [ no gar ]
-
-⟢ fampl 1b : 5.000
-⟢ indpl 1b : 6.000
-⟢ indpl 3b : 16.000
+3B INDPLAN FULLGAR : 32.000
 """
 
     await update.message.reply_text(text)
