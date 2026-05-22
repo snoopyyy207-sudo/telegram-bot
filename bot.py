@@ -439,14 +439,6 @@ f"""
         except:
             pass
 
-
-# ============================================
-# HANDLER
-# ============================================
-
-app.add_handler(CommandHandler("d", done))
-app.add_handler(MessageHandler(filters.ALL, detect_rnk))
-
 # =========================================
 # RUN BOT
 # =========================================
@@ -471,8 +463,9 @@ app.add_handler(CommandHandler("teleprem", teleprem))
 app.add_handler(CommandHandler("social", social))
 
 app.add_handler(CommandHandler("admin", admin))
-app.add_handler(CommandHandler("d", done))
 
+app.add_handler(CommandHandler("d", done))
+app.add_handler(MessageHandler(filters.ALL, detect_rnk))
 print("MYCA STORE RUNNING...")
 
 app.run_polling()
