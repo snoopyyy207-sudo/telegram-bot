@@ -201,9 +201,23 @@ async def youtube(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ famplan 3b : 4.500
 ⟢ indplan 1b : 2.500
 ⟢ famphead 1b : 5.000
-"""
 
     await update.message.reply_text(text)
+
+# =========================================
+# LOKLOK
+# =========================================
+
+async def loklok(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("""
+🎬 LOKLOK
+
+⟢ sharing 20d : 8.500
+⟢ private 20d : 24.000
+⟢ private 1b : 38.000
+⟢ sharing 1b basic : 13.000
+⟢ sharing 1b std : 15.000
+""")
 
 # =========================================
 # CAPCUT
