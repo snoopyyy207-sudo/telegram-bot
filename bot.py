@@ -24,7 +24,7 @@ ADMIN_ID = 8692377434
 # DATABASE
 # =========================================
 
-approved_users = set()
+approved_users = set(8692377434)
 groups = set()
 
 promo_text = None
