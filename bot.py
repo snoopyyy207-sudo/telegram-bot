@@ -360,10 +360,9 @@ OWNER:
 """
 
     await update.message.reply_text(text)
-
-# =========================
+# ============================================
 # DONE COMMAND
-# =========================
+# ============================================
 
 async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
@@ -376,6 +375,8 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.message.reply_to_message.from_user.id
 
     try:
+
+        # mute user
         await context.bot.restrict_chat_member(
             chat_id=-1003924200293,
             user_id=user_id,
@@ -384,9 +385,14 @@ async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
             )
         )
 
+        # notif
         await update.message.reply_text(
 f"""
-👋 Hallo {update.message.reply_to_message.from_user.mention_html()} Silakan isi rnk disini [ t.me/mycapyla/23 ] dan anda akan di lepas hukuman setelah mengisi rnk!
+👋 Hallo {update.message.reply_to_message.from_user.mention_html()} Silakan isi rnk disini:
+
+https://t.me/mycapyla/23
+
+dan anda akan di lepas hukuman setelah mengisi rnk!
 
 -- BOT VIP MYCA --
 """,
@@ -397,11 +403,49 @@ f"""
         await update.message.reply_text(str(e))
 
 
-# =========================
+# ============================================
+# DETECT RNK
+# ============================================
+
+async def detect_rnk(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    CHANNEL_ID = -1003977810960
+
+    if update.effective_chat.id == CHANNEL_ID:
+
+        user_id = update.effective_user.id
+
+        try:
+
+            await context.bot.restrict_chat_member(
+                chat_id=-1003924200293,
+                user_id=user_id,
+                permissions=ChatPermissions(
+                    can_send_messages=True,
+                    can_send_media_messages=True,
+                    can_send_other_messages=True,
+                    can_add_web_page_previews=True
+                )
+            )
+
+            await update.message.reply_text(
+f"""
+✅ @{update.effective_user.username} sudah mengisi RnK dan telah di lepas hukuman.
+
+-- BOT VIP MYCA --
+"""
+            )
+
+        except:
+            pass
+
+
+# ============================================
 # HANDLER
-# =========================
+# ============================================
 
 app.add_handler(CommandHandler("d", done))
+app.add_handler(MessageHandler(filters.ALL, detect_rnk))
 
 # =========================================
 # RUN BOT
