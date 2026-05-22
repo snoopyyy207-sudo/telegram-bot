@@ -50,6 +50,7 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 /bstation
 /youku
 /loklok
+/wetv
 /capcut
 /canva
 /alightmotion
@@ -253,6 +254,29 @@ async def youku(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ sharing 1b : 5.000
 ⟢ sharing 3b : 8.000
 ⟢ sharing 1y : 11.000
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# WETV
+# =========================================
+
+async def wetv(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📺 WETV
+
+• Sharing
+• 6u 1 Month : 5.000
+• 3u 1 Month : 9.000
+• 3u 3 Month : 16.000
+• 2u 1 Month : 12.000
+
+• Private
+• 1 Month : 24.800
+
+1b priv bebas pake nomor klian
 """
 
     await update.message.reply_text(text)
@@ -718,6 +742,7 @@ app.add_handler(CommandHandler("spotify", spotify))
 app.add_handler(CommandHandler("youtube", youtube))
 app.add_handler(CommandHandler("viu", viu))
 app.add_handler(CommandHandler("iqiyi", iqiyi))
+app.add_handler(CommandHandler("wetv", wetv))
 app.add_handler(CommandHandler("capcut", capcut))
 app.add_handler(CommandHandler("canva", canva))
 app.add_handler(CommandHandler("teleprem", teleprem))
