@@ -390,3 +390,76 @@ app.add_handler(CommandHandler("admin", admin))
 print("MYCA STORE RUNNING...")
 
 app.run_polling()
+
+# =========================================
+# DATABASE
+# =========================================
+
+group_members = set()
+rnk_users = set()
+
+# =========================================
+# SAVE MEMBER
+# =========================================
+
+async def new_member(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    for user in update.message.new_chat_members:
+
+        group_members.add(user.id)
+
+# =========================================
+# DETECT RNK CHANNEL
+# =========================================
+
+async def detect_rnk(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    if update.effective_chat.id != RNK_CHANNEL_ID:
+        return
+
+    rnk_users.add(update.effective_user.id)
+
+# =========================================
+# DONE COMMAND
+# =========================================
+
+async def done(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    if not update.message.reply_to_message:
+
+        await update.message.reply_text(
+            "Reply chat customer lalu ketik /d"
+        )
+        return
+
+    user_id = update.message.reply_to_message.from_user.id
+
+    # kalau belum isi RnK
+    if user_id not in rnk_users:
+
+        try:
+
+            await context.bot.restrict_chat_member(
+                chat_id=GROUP_ID,
+                user_id=user_id,
+                permissions=ChatPermissions(
+                    can_send_messages=False
+                )
+            )
+
+            await update.message.reply_text(
+                "❌ Customer belum isi RnK.\nUser berhasil dimute."
+            )
+
+        except Exception as e:
+
+            await update.message.reply_text(str(e))
+
+    else:
+
+        await update.message.reply_text(
+            "✅ Customer sudah isi RnK."
+        )
+
+        # reset supaya next order wajib isi lagi
+        rnk_users.remove(user_id)
