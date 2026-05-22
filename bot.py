@@ -88,7 +88,7 @@ async def sewa(update: Update, context: ContextTypes.DEFAULT_TYPE):
         photo="https://t.me/twinkaboo/3",
         caption=(
             "💎 SEWA BOT VIP 💎\n\n"
-            "Harga : Rp10.000 / bulan\n\n"
+            "Harga : Rp4.000 / bulan\n\n"
             "Transfer ke QRIS di atas lalu kirim bukti transfer ke admin."
         ),
         reply_markup=reply_markup
