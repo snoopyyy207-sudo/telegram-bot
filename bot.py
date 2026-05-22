@@ -51,6 +51,7 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 /youku
 /loklok
 /wetv
+/vidio
 /capcut
 /canva
 /alightmotion
@@ -277,6 +278,38 @@ async def wetv(update: Update, context: ContextTypes.DEFAULT_TYPE):
 • 1 Month : 24.800
 
 1b priv bebas pake nomor klian
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# VIDIO
+# =========================================
+
+async def vidio(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📺 VIDIO PLATINUM
+
+• Sharing Harian (only mobile)
+• 1 Day : 3.000
+• 3 Day : 5.000
+• 7 Day : 8.000
+
+• Sharing Bulanan
+• 1 Month mobile : 15.000
+• 1 Month alldev : 19.000
+• 1 Years only tv : 2.500
+
+• Private
+• 1 Month mobile : 26.000
+• 1 Month alldev : 31.000
+
+
+💎 DIAMOND
+
+• 2u 1 Month : 33.000
+• Private 1 Month : 51.000
 """
 
     await update.message.reply_text(text)
@@ -743,6 +776,7 @@ app.add_handler(CommandHandler("youtube", youtube))
 app.add_handler(CommandHandler("viu", viu))
 app.add_handler(CommandHandler("iqiyi", iqiyi))
 app.add_handler(CommandHandler("wetv", wetv))
+app.add_handler(CommandHandler("vidio", vidio))
 app.add_handler(CommandHandler("capcut", capcut))
 app.add_handler(CommandHandler("canva", canva))
 app.add_handler(CommandHandler("teleprem", teleprem))
