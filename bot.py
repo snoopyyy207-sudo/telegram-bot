@@ -386,6 +386,7 @@ app.add_handler(CommandHandler("social", social))
 
 app.add_handler(CommandHandler("payment", payment))
 app.add_handler(CommandHandler("admin", admin))
+app.add_handler(CommandHandler("d", done))
 
 print("MYCA STORE RUNNING...")
 
