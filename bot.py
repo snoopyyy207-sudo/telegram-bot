@@ -59,31 +59,30 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     if user_id not in approved_users:
 
-    await update.message.reply_text(
-        "❌ Akses ditolak.\n\n"
-        "Ketik /sewa untuk membeli akses."
-    )
-
-    return
-
-expired = approved_users[user_id]
-
-if expired != "permanent":
-
-    if datetime.now() > expired:
-
-        del approved_users[user_id]
-
         await update.message.reply_text(
-            "❌ Masa sewa habis."
+            "❌ Akses ditolak.\n\n"
+            "Ketik /sewa untuk membeli akses."
         )
 
         return
 
+    expired = approved_users[user_id]
+
+    if expired != "permanent":
+
+        if datetime.now() > expired:
+
+            del approved_users[user_id]
+
+            await update.message.reply_text(
+                "❌ Masa sewa habis."
+            )
+
+            return
+
     await update.message.reply_text(
         "✅ Selamat datang member VIP."
     )
-
 # =========================================
 # MENU SEWA
 # =========================================
