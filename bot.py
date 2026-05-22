@@ -127,7 +127,6 @@ async def netflix(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ 7d private : 5O.OOO
 ⟢ 1month private : 1O5.OOO
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -146,7 +145,6 @@ async def disney(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ sharing 1b 6u : 26.000
 ⟢ private 1b : 126.000
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -166,7 +164,6 @@ async def viu(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ viu+ 1b : 7.500
 ⟢ viu lifetime : 2.500
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -188,7 +185,6 @@ async def iqiyi(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ std 3b : 8.000
 ⟢ std 1y : 9.000
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -200,15 +196,13 @@ async def iqiyi(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def youtube(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-▶️ YOUTUBE PREMIUM
 
-⟢ famplan 1b : 2.500
-⟢ famplan 2b : 4.000
-⟢ famplan 3b : 5.500
-⟢ indplan 1b : 4.500
+⟢ famplan 1b : 1.500
+⟢ famplan 2b : 3.000
+⟢ famplan 3b : 4.500
+⟢ indplan 1b : 2.500
 ⟢ famphead 1b : 5.000
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -234,7 +228,6 @@ async def capcut(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ private 28day : 1O.OOO
 ⟢ private 1month : 12.OOO
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -262,7 +255,6 @@ async def canva(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 ⟢ lifetime : 3.800
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -292,7 +284,6 @@ async def spotify(update: Update, context: ContextTypes.DEFAULT_TYPE):
 ⟢ indpl 1b : 6.000
 ⟢ indpl 3b : 16.000
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
@@ -362,7 +353,6 @@ WHATSAPP MEMBER SALURAN
 › 50 : 5.000
 › 100 : 9.000
 
-📩 Order? @mycaelish
 """
 
     await update.message.reply_text(text)
