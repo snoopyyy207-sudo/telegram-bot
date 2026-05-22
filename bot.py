@@ -323,6 +323,68 @@ async def alightmotion(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 
 # =========================================
+# PICSART
+# =========================================
+
+async def picsart(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🖼 PICSART
+
+⟢ sharing 1b : 2.500
+⟢ private 1b : 5.000
+"""
+
+    await update.message.reply_text(text)
+
+
+# =========================================
+# MEITU
+# =========================================
+
+async def meitu(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+💄 MEITU
+
+⟢ sharing 1b : 14.000
+⟢ private 1b : 31.000
+"""
+
+    await update.message.reply_text(text)
+
+
+# =========================================
+# WINK
+# =========================================
+
+async def wink(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+✨ WINK
+
+⟢ private andro 7d : 6.500
+⟢ sharing andro 7d : 3.500
+"""
+
+    await update.message.reply_text(text)
+
+
+# =========================================
+# REMINI
+# =========================================
+
+async def remini(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📸 REMINI
+
+⟢ web 1b : 5.000
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
 # SPOTIFY
 # =========================================
 
