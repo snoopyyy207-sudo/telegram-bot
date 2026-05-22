@@ -413,6 +413,77 @@ async def spotify(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(text)
 
 # =========================================
+# APPLE MUSIC
+# =========================================
+
+async def applemusic(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+🎵 APPLE MUSIC
+
+⟢ 1b : 4.000
+⟢ 3b : 10.000
+"""
+
+    await update.message.reply_text(text)
+# =========================================
+# NOKOS TELEGRAM
+# =========================================
+
+async def nokostele(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📱 NOKOS TELEGRAM
+
+⟢ indo fs : 4.600 - 5.900
+⟢ usa : 7.500 - 9.000
+⟢ canada : 7.000 - 8.500
+⟢ malaysia : 8.000 - 9.500
+⟢ myanmar : 8.000 - 9.500
+⟢ vietnam : 8.000 - 9.500
+"""
+
+    await update.message.reply_text(text)
+
+
+# =========================================
+# NOKOS WHATSAPP
+# =========================================
+
+async def nokoswa(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📱 NOKOS WHATSAPP
+
+⟢ indo no gar : 3.500 - 4.500
+⟢ indo gar : 9.000 - 12.000
+"""
+
+    await update.message.reply_text(text)
+
+
+# =========================================
+# NOKOS ALL APK
+# =========================================
+
+async def nokosapk(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+📱 NOKOS ALL APK
+
+⟢ shopee : 2.500
+⟢ lazada : 2.200
+⟢ gojek : 2.200
+⟢ grab : 2.200
+⟢ alfagift : 2.500
+⟢ indomaret : 2.500
+⟢ viber : 3.000
+⟢ maxim : 2.500
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
 # TELEGRAM PREMIUM
 # =========================================
 
