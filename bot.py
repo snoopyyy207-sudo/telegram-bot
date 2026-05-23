@@ -362,19 +362,19 @@ async def canva(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 🎨 CANVA
 
-⟢ 1d member : 40p
-⟢ 7d member : 100p
-⟢ 1b member : 250p
-⟢ 2b : 600p
-⟢ 3b : 1.000
-⟢ 6b : 1.300
+⟢ 1d member : 140p
+⟢ 7d member : 400p
+⟢ 1b member : 750p
+⟢ 2b : 1.000
+⟢ 3b : 1.400
+⟢ 6b : 1.700
 
-⟢ 1y renew : 2.000
-⟢ 1y no renew : 3.000
-⟢ 1y member gar8m : 6.OOO
-⟢ 1y member fullgar : 8.OOO
+⟢ 1y renew : 3.000
+⟢ 1y no renew : 4.000
+⟢ 1y member gar8m : 7.OOO
+⟢ 1y member fullgar : 9.OOO
 
-⟢ lifetime : 3.800
+⟢ lifetime : 4.800
 """
 
     await update.message.reply_text(text)
@@ -421,8 +421,8 @@ async def meitu(update: Update, context: ContextTypes.DEFAULT_TYPE):
     text = """
 💄 MEITU
 
-⟢ sharing 1b : 14.000
-⟢ private 1b : 31.000
+⟢ private 7d : 1.500
+⟢ private 1b : 4.500
 """
 
     await update.message.reply_text(text)
