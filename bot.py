@@ -336,20 +336,25 @@ async def vidio(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def capcut(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
     text = """
-🎬 CAPCUT
+:¨ ·.· ¨:  ──────
+ `· . CAPCUT 
+           ───────
 
-⟢ sharing 1day : 9OOp
-⟢ sharing 7day : 1.5OO
-⟢ sharing 1month : 5.OOO
+˳ ✉️ ྀི  soft (&.) heart ___;3
+.° price list 𓈆 ₊˚ 🎀
 
-━━━━━━━━━━━━━━━
+ uwu. capcut sebulan no renew
+🌷 ⠖   ◞ 🕊️˚  IDR 29.000 ༝ ꒱ა 
 
-⟢ private 7day : 4.OOO
-⟢ private 14day : 5.OOO
-⟢ private 21day : 6.5OO
-⟢ private 28day : 1O.OOO
-⟢ private 1month : 12.OOO
-"""
+ uwu. capcut seminggu 
+🌷 ⠖   ◞ 🕊️˚  IDR 9.000 ༝ ꒱ა 
+
+⁺ִ ∝ꞌꞋ ࣪ 🍓 uwo.u 𝗻𝗼𝘁𝗲 𝗽𝗿𝗶𝗰𝗲 𝗹𝗶𝘀𝘁 ₎
+ 𝖻𝗎𝗒𝖾𝗋 • 𝗉𝗅𝖾𝖺𝗌𝖾 𝗋𝖾𝖺𝖽 𝗍𝗁𝗂𝗌 !!
+. Ი𐑼 𝗈𝗋𝖽𝖾𝗋 𝗈𝗇𝗅𝗒 𝗍𝗈 @.admins 
+. Ი𐑼 acc seller, gbs di ubah 
+. Ი𐑼 no renew gar 20 hari
+. Ი𐑼 membeli = setuju
 
     await update.message.reply_text(text)
 
