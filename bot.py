@@ -38,6 +38,7 @@ async def pricelist(update: Update, context: ContextTypes.DEFAULT_TYPE):
 🎬 STREAMING
 /netflix
 /spotify
+/applemusic
 /youtube
 /disney
 /viu
@@ -118,6 +119,35 @@ async def spotify(update: Update, context: ContextTypes.DEFAULT_TYPE):
 . Ი𐑼 fast respon jika tidak ada antrian
 . Ი𐑼 wajib ss log untuk claim
 . Ი𐑼 max ss 5 jam
+"""
+
+    await update.message.reply_text(text)
+
+# =========================================
+# APPLE MUSIC
+# =========================================
+
+async def applemusic(update: Update, context: ContextTypes.DEFAULT_TYPE):
+
+    text = """
+:¨ ·.· ¨:  ──────
+`· . APPLE MUSIC
+───────
+
+˳ ✉️ ྀི soft (&.) heart ___;3
+.° price list 𓈆 ₊˚ 🎀
+
+⟢ 1 month
+🌷 ⠖ ◞ 🕊️˚ IDR 4.000 ༝ ꒱ა
+
+⟢ 3 month
+🌷 ⠖ ◞ 🕊️˚ IDR 10.000 ༝ ꒱ა
+
+⁺ִ ∝ꞌꞋ ࣪ 🍓 note ₎
+
+. Ი𐑼 wajib email fresh
+. Ი𐑼 garansi sesuai ketentuan
+. Ი𐑼 wajib ss log untuk claim
 """
 
     await update.message.reply_text(text)
@@ -877,6 +907,7 @@ app.add_handler(CommandHandler("pricelist", pricelist))
 
 # STREAMING
 app.add_handler(CommandHandler("spotify", spotify))
+app.add_handler(CommandHandler("applemusic", applemusic))
 app.add_handler(CommandHandler("netflix", netflix))
 app.add_handler(CommandHandler("youtube", youtube))
 app.add_handler(CommandHandler("disney", disney))
